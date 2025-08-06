@@ -7,7 +7,7 @@ const publicProcedure = t.procedure;
 const appRouter = t.router({
   todo: t.router({
     getTodos: publicProcedure.output(z.array(z.object({
-      id: z.string(),
+      id: z.string().optional(),
       title: z.string(),
       description: z.string(),
       priority: z.string(),
@@ -17,7 +17,7 @@ const appRouter = t.router({
       title: z.string(),
       priority: z.string().optional(),
     })).output(z.object({
-      id: z.string(),
+      id: z.string().optional(),
       title: z.string(),
       description: z.string(),
       priority: z.string(),

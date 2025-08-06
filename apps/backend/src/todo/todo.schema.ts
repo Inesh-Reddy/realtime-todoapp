@@ -3,7 +3,7 @@ import { z } from 'zod';
 
 export const StatusZ = z.enum(StatusValues as [string, ...string[]]);
 export const zTodo = z.object({
-  id: z.string(),
+  id: z.string().optional(),
   title: z.string(),
   description: z.string(),
   priority: z.string(),
