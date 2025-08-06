@@ -6,9 +6,3 @@ export enum StatusEnum {
 
 export const StatusValues = Object.values(StatusEnum);
 export type Status = (typeof StatusValues)[number];
-
-// export namespace StatusModule {
-//   export type Type = Status;
-// }
-
-// export default StatusModule;

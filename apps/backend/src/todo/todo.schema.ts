@@ -1,11 +1,7 @@
-import { StatusEnum } from '@repo/shared';
+import { StatusValues } from '@repo/shared';
 import { z } from 'zod';
 
-export const StatusZ = z.enum([
-  StatusEnum.Completed,
-  StatusEnum.In_Progress,
-  StatusEnum.Not_Started,
-] as const);
+export const StatusZ = z.enum(StatusValues as [string, ...string[]]);
 export const zTodo = z.object({
   id: z.string(),
   title: z.string(),

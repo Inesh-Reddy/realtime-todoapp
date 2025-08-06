@@ -11,11 +11,7 @@ const appRouter = t.router({
       title: z.string(),
       description: z.string(),
       priority: z.string(),
-      status: z.enum([
-        StatusEnum.Completed,
-        StatusEnum.In_Progress,
-        StatusEnum.Not_Started,
-      ] as const),
+      status: z.enum(StatusValues as [string, ...string[]]),
     }))).query(async () => "PLACEHOLDER_DO_NOT_REMOVE" as any),
     createTodo: publicProcedure.input(z.object({
       title: z.string(),
@@ -25,11 +21,7 @@ const appRouter = t.router({
       title: z.string(),
       description: z.string(),
       priority: z.string(),
-      status: z.enum([
-        StatusEnum.Completed,
-        StatusEnum.In_Progress,
-        StatusEnum.Not_Started,
-      ] as const),
+      status: z.enum(StatusValues as [string, ...string[]]),
     })).mutation(async () => "PLACEHOLDER_DO_NOT_REMOVE" as any)
   })
 });

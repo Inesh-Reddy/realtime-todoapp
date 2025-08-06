@@ -9,7 +9,7 @@ export class TodoService {
   constructor(@InjectModel('Todo') private todoModel: Model<Todo>) {}
 
   async getAllTodos(): Promise<TodoTypesModule.TodoType[]> {
-    const data = await this.todoModel.find();
+    const data = await this.todoModel.find().lean();
     const result = data.map((todo) => ({
       id: todo._id as string,
       description: todo.description,

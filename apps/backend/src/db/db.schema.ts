@@ -1,6 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document, Schema as MongooseSchema } from 'mongoose';
-import { StatusEnum, StatusValues } from '@repo/shared';
+import { StatusEnum } from '@repo/shared';
 
 @Schema({ timestamps: true, toJSON: { virtuals: true } })
 export class Todo extends Document {
@@ -13,8 +13,10 @@ export class Todo extends Document {
   @Prop({ required: true })
   priority: string;
 
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-  @Prop({ enum: StatusValues, required: true })
+  @Prop({
+    enum: Object.values(StatusEnum as any as Record<string, string>),
+    required: true,
+  })
   status: StatusEnum;
 }
 
