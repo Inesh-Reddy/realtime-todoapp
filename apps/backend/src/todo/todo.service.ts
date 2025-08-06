@@ -11,7 +11,7 @@ export class TodoService {
   async getAllTodos(): Promise<TodoTypesModule.TodoType[]> {
     const data = await this.todoModel.find().lean();
     const result = data.map((todo) => ({
-      id: `${todo._id}`,
+      id: `${todo._id as string}`,
       description: todo.description,
       title: todo.title,
       priority: todo.priority,
